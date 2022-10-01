@@ -1,6 +1,6 @@
-import { response, formatErrorValidation } from "../helper/global.js";
+import { response, formatErrorValidation } from "../../helper/global.js";
 import { validationResult } from "express-validator";
-import Student from "../models/Student.js";
+import Student from "../../models/Student.js";
 
 const index = async (req, res) => {
     try {
