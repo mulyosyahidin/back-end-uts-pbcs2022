@@ -85,4 +85,4 @@ const destroy = async (req, res) => {
     }
 };
 
-export { index, show, store, update, destroy };
+export const FacultyController = { index, show, store, update, destroy };
