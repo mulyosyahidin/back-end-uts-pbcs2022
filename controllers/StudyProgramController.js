@@ -4,7 +4,13 @@ import Study_program from "../models/Study_program.js";
 
 const index = async (req, res) => {
     try {
-        const studyPrograms = await Study_program.findAll();
+        const studyPrograms = await Study_program.findAll({
+            include: [
+                {
+                    association: "faculty",
+                }
+            ]
+        });
     
         res.status(200).json(response(true, studyPrograms));
     } catch (error) {
@@ -14,7 +20,13 @@ const index = async (req, res) => {
 
 const show = async (req, res) => {
     try {
-        const studyProgram = await Study_program.findByPk(req.params.id);
+        const studyProgram = await Study_program.findByPk(req.params.id, {
+            include: [
+                {
+                    association: "faculty",
+                }
+            ]
+        });
     
         if (studyProgram) {
             res.status(200).json(response(true, studyProgram));

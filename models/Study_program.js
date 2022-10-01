@@ -1,5 +1,6 @@
 import { Sequelize } from "sequelize";
 import db from "../config/database.js";
+import Faculty from "./Faculty.js";
 
 const { DataTypes } = Sequelize;
 
@@ -21,6 +22,11 @@ const Study_program = db.define("study_programs", {
         type: DataTypes.CHAR(1),
         allowNull: false,
     },
+});
+
+Study_program.belongsTo(Faculty, {
+    foreignKey: "faculty_id",
+    as: "faculty",
 });
 
 export default Study_program;
